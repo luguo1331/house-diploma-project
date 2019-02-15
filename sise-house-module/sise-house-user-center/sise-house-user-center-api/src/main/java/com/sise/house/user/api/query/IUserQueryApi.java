@@ -21,4 +21,8 @@ public interface IUserQueryApi {
     @GetMapping("/{id}")
     @ApiOperation(value = "根据id查询用户信息", notes = "根据id查询用户信息")
     ServerResponse getUserById(@PathVariable(name = "id") Long id);
+
+    @GetMapping("agentDetail/{id}")
+    @ApiOperation(value = "查询中介信息", notes = "查询中介信息")
+    ServerResponse agentDetail(@PathVariable(name = "id") Long id);
 }
