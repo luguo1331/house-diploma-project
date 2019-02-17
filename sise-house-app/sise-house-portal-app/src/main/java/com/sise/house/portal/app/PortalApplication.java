@@ -1,4 +1,4 @@
-package com.sise.house.house.biz;
+package com.sise.house.portal.app;
 
 import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServlet;
 import org.springframework.boot.SpringApplication;
@@ -13,21 +13,30 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
- * @Description: 房产中心启动类
+ * @Description: 前台应用 启动类
  * @Auther: 冲之
- * @Date: 2019/2/15 14:07
+ * @Date: 2019/2/17 14:58
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages = "com.sise.house.user.api")
+@EnableFeignClients(basePackages = "com.sise.house.*.api")
 @ComponentScan(basePackages = {"com.sise.house.*"})
 @EnableHystrixDashboard
 @EnableCircuitBreaker
 @EnableHystrix
-public class HouseCenterApplication {
+public class PortalApplication {
+
     public static void main(String[] args) {
-        SpringApplication.run(HouseCenterApplication.class, args);
+        SpringApplication.run(PortalApplication.class, args);
     }
 
-
+    @Bean
+    public ServletRegistrationBean getServlet() {
+        HystrixMetricsStreamServlet streamServlet = new HystrixMetricsStreamServlet();
+        ServletRegistrationBean registrationBean = new ServletRegistrationBean(streamServlet);
+        registrationBean.setLoadOnStartup(1);
+        registrationBean.addUrlMappings("/hystrix.stream");
+        registrationBean.setName("HystrixMetricsStreamServlet");
+        return registrationBean;
+    }
 }

@@ -71,12 +71,15 @@
         </javaClientGenerator>
 
 
-        <table tableName="house_user" domainObjectName="User" enableCountByExample="true" enableUpdateByExample="true"
+        <table tableName="house_info" domainObjectName="User" enableCountByExample="true" enableUpdateByExample="true"
                enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
-        <table tableName="house_agency" domainObjectName="Agency" enableCountByExample="true" enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
-        <table tableName="house_user_collect" domainObjectName="UserCollect" enableCountByExample="true" enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
+
+        <!--<table tableName="house_agency" domainObjectName="Agency" enableCountByExample="true"-->
+               <!--enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>-->
+        <!--<table tableName="house_user_collect" domainObjectName="UserCollect" enableCountByExample="true"-->
+               <!--enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>-->
 
 
     </context>

@@ -3,7 +3,6 @@ package com.sise.house.blog.api;
 
 import com.sise.common.rest.ServerResponse;
 import com.sise.house.blog.api.dto.request.ExampleReqDto;
-import com.sise.house.blog.api.fallback.ExampleApiFallback;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -17,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
  * @Date: 2019/1/30 16:08
  */
 @Api(tags = {"示例中心：示例服务"})
-@FeignClient(value = "example", path = "/example", fallback = ExampleApiFallback.class)
+@FeignClient(value = "example", path = "/example")
 @Validated
 public interface IExampleApi {
 

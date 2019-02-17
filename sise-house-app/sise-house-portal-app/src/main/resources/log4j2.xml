@@ -27,7 +27,7 @@
         </RollingRandomAccessFile>
 
 
-        <RollingRandomAccessFile name="FILE-DEBUG" fileName="logs/house-comment-center-debug.log"
+        <RollingRandomAccessFile name="FILE-DEBUG" fileName="logs/house-portal-app-debug.log"
                                  filePattern="logs/house-debug.%d{yyyy-MM-dd-HH}.log">
             <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout
@@ -42,7 +42,7 @@
             </DefaultRolloverStrategy>
         </RollingRandomAccessFile>
 
-        <RollingRandomAccessFile name="FILE-WARN" fileName="logs/house-comment-center-warn.log"
+        <RollingRandomAccessFile name="FILE-WARN" fileName="logs/house-portal-app-warn.log"
                                  filePattern="logs/house-warn.%d{yyyy-MM-dd-HH}.log">
             <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout
@@ -57,7 +57,7 @@
             </DefaultRolloverStrategy>
         </RollingRandomAccessFile>
 
-        <RollingRandomAccessFile name="FILE-ERROR" fileName="logs/house-comment-center-error.log"
+        <RollingRandomAccessFile name="FILE-ERROR" fileName="logs/house-portal-app-error.log"
                                  filePattern="logs/house-error.%d{yyyy-MM-dd-HH}.log">
             <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout
@@ -75,12 +75,6 @@
 
     <loggers>
         <AsyncLogger name="springfox" level="OFF"></AsyncLogger>
-
-        <AsyncLogger level="DEBUG" name="com.sise.house.comment.biz.dao" additivity="false">
-            <appender-ref ref="FILE-DEBUG"/>
-            <appender-ref ref="STDOUT"/>
-        </AsyncLogger>
-
 
         <AsyncRoot level="INFO" includeLocation="true">
             <AppenderRef ref="FILE-INFO"/>

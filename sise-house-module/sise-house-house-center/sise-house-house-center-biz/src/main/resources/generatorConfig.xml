@@ -69,41 +69,45 @@
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 
-        <table tableName="house_msg" domainObjectName="HouseMsg" enableCountByExample="true"
-               enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
+        <!--<table tableName="house_msg" domainObjectName="HouseMsg" enableCountByExample="true"-->
+               <!--enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>-->
 
-        <table tableName="house_detail" domainObjectName="HouseDetail" enableCountByExample="true"
-               enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
+        <!--<table tableName="house_detail" domainObjectName="HouseDetail" enableCountByExample="true"-->
+               <!--enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>-->
 
-        <table tableName="house_picture" domainObjectName="HousePicture" enableCountByExample="true"
-               enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
+        <!--<table tableName="house_picture" domainObjectName="HousePicture" enableCountByExample="true"-->
+               <!--enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>-->
 
-        <table tableName="house_tag" domainObjectName="HouseTag" enableCountByExample="true"
-               enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
+        <!--<table tableName="house_tag" domainObjectName="HouseTag" enableCountByExample="true"-->
+               <!--enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>-->
 
-        <table tableName="house_subscribe" domainObjectName="HouseSubscribe" enableCountByExample="true"
-               enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
+        <!--<table tableName="house_subscribe" domainObjectName="HouseSubscribe" enableCountByExample="true"-->
+               <!--enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>-->
 
-        <table tableName="house_community" domainObjectName="HouseCommunity" enableCountByExample="true"
-               enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
+        <!--<table tableName="house_community" domainObjectName="HouseCommunity" enableCountByExample="true"-->
+               <!--enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>-->
 
-        <table tableName="house_subway" domainObjectName="HouseSubway" enableCountByExample="true"
-               enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
+        <!--<table tableName="house_subway" domainObjectName="HouseSubway" enableCountByExample="true"-->
+               <!--enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>-->
 
-        <table tableName="house_subway_station" domainObjectName="HouseSubwayStation" enableCountByExample="true"
-               enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
+        <!--<table tableName="house_subway_station" domainObjectName="HouseSubwayStation" enableCountByExample="true"-->
+               <!--enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>-->
 
-        <table tableName="house_support_address" domainObjectName="HouseSupportAddress" enableCountByExample="true"
-               enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
+        <!--<table tableName="house_support_address" domainObjectName="HouseSupportAddress" enableCountByExample="true"-->
+               <!--enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>-->
+
+        <table tableName="house_collect" domainObjectName="HouseCollect" enableCountByExample="true"
+        enableUpdateByExample="true"
+        enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
 
     </context>
 </generatorConfiguration>

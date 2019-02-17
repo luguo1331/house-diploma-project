@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.sise.house.user.biz.dao.UserCollectMapper" >
-  <resultMap id="BaseResultMap" type="com.sise.house.user.biz.pojo.UserCollect" >
+<mapper namespace="com.sise.house.house.biz.dao.HouseCollectMapper" >
+  <resultMap id="BaseResultMap" type="com.sise.house.house.biz.pojo.HouseCollect" >
     <constructor >
       <idArg column="id" jdbcType="BIGINT" javaType="java.lang.Long" />
       <arg column="house_id" jdbcType="BIGINT" javaType="java.lang.Long" />
@@ -71,14 +71,14 @@
   <sql id="Base_Column_List" >
     id, house_id, user_id, create_time, type
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.sise.house.user.biz.pojo.UserCollectExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.sise.house.house.biz.pojo.HouseCollectExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     'true' as QUERYID,
     <include refid="Base_Column_List" />
-    from house_user_collect
+    from house_collect
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -89,27 +89,27 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
-    from house_user_collect
+    from house_collect
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from house_user_collect
+    delete from house_collect
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.sise.house.user.biz.pojo.UserCollectExample" >
-    delete from house_user_collect
+  <delete id="deleteByExample" parameterType="com.sise.house.house.biz.pojo.HouseCollectExample" >
+    delete from house_collect
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.sise.house.user.biz.pojo.UserCollect" >
-    insert into house_user_collect (id, house_id, user_id, 
+  <insert id="insert" parameterType="com.sise.house.house.biz.pojo.HouseCollect" >
+    insert into house_collect (id, house_id, user_id, 
       create_time, type)
     values (#{id,jdbcType=BIGINT}, #{houseId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, 
       #{createTime,jdbcType=DATE}, #{type,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="com.sise.house.user.biz.pojo.UserCollect" >
-    insert into house_user_collect
+  <insert id="insertSelective" parameterType="com.sise.house.house.biz.pojo.HouseCollect" >
+    insert into house_collect
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -145,14 +145,14 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.sise.house.user.biz.pojo.UserCollectExample" resultType="java.lang.Integer" >
-    select count(*) from house_user_collect
+  <select id="countByExample" parameterType="com.sise.house.house.biz.pojo.HouseCollectExample" resultType="java.lang.Integer" >
+    select count(*) from house_collect
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update house_user_collect
+    update house_collect
     <set >
       <if test="record.id != null" >
         id = #{record.id,jdbcType=BIGINT},
@@ -175,7 +175,7 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update house_user_collect
+    update house_collect
     set id = #{record.id,jdbcType=BIGINT},
       house_id = #{record.houseId,jdbcType=BIGINT},
       user_id = #{record.userId,jdbcType=BIGINT},
@@ -185,8 +185,8 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.sise.house.user.biz.pojo.UserCollect" >
-    update house_user_collect
+  <update id="updateByPrimaryKeySelective" parameterType="com.sise.house.house.biz.pojo.HouseCollect" >
+    update house_collect
     <set >
       <if test="houseId != null" >
         house_id = #{houseId,jdbcType=BIGINT},
@@ -203,8 +203,8 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.sise.house.user.biz.pojo.UserCollect" >
-    update house_user_collect
+  <update id="updateByPrimaryKey" parameterType="com.sise.house.house.biz.pojo.HouseCollect" >
+    update house_collect
     set house_id = #{houseId,jdbcType=BIGINT},
       user_id = #{userId,jdbcType=BIGINT},
       create_time = #{createTime,jdbcType=DATE},

@@ -1,12 +1,12 @@
 package com.sise.house.user.api.query;
 
 import com.sise.common.rest.ServerResponse;
+import com.sise.house.user.api.dto.request.UserReqDto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Description: 用户中心：用户查询接口
@@ -18,11 +18,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Validated
 public interface IUserQueryApi {
 
-    @GetMapping("/{id}")
-    @ApiOperation(value = "根据id查询用户信息", notes = "根据id查询用户信息")
-    ServerResponse getUserById(@PathVariable(name = "id") Long id);
+    @GetMapping("/userDetail")
+    @ApiOperation(value = "查询用户信息", notes = "查询用户信息")
+    ServerResponse queryUserById(@RequestParam(name = "id") Long id,
+                                 @RequestParam(name = "type") Boolean type);
 
-    @GetMapping("agentDetail/{id}")
-    @ApiOperation(value = "查询中介信息", notes = "查询中介信息")
-    ServerResponse agentDetail(@PathVariable(name = "id") Long id);
+    @GetMapping("auth")
+    @ApiOperation(value = "验证密码、邮箱", notes = "验证密码、邮箱")
+    ServerResponse auth(@RequestBody UserReqDto userReqDto);
+
+    @GetMapping("/list")
+    @ApiOperation(value = "分页查询用户列表", notes = "分页查询用户列表")
+    ServerResponse queryUserByList(@RequestParam(name = "pageSize", required = false, defaultValue = "10") Integer pageSize,
+                                 @RequestParam(name = "pageNum", required = false, defaultValue = "1") Integer pageNum,
+                                 @RequestParam(name = "type") Boolean type);
 }

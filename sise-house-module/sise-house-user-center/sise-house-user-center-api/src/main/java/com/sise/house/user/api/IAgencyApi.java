@@ -22,4 +22,5 @@ public interface IAgencyApi {
     @RequestMapping("/add")
     @ApiOperation(value = "新增中介", notes = "新增中介")
     ServerResponse addAgency(@RequestBody AgencyReqDto agencyReqDto);
+
 }

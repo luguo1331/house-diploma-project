@@ -1,18 +1,18 @@
-package com.sise.house.user.biz.pojo;
+package com.sise.house.house.biz.pojo;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-public class UserCollectExample {
+public class HouseCollectExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public UserCollectExample() {
+    public HouseCollectExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 

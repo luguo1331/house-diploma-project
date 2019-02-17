@@ -1,8 +1,8 @@
-package com.sise.house.user.biz.pojo;
+package com.sise.house.house.biz.pojo;
 
 import java.util.Date;
 
-public class UserCollect {
+public class HouseCollect {
     private Long id;
 
     private Long houseId;
@@ -13,7 +13,7 @@ public class UserCollect {
 
     private Boolean type;
 
-    public UserCollect(Long id, Long houseId, Long userId, Date createTime, Boolean type) {
+    public HouseCollect(Long id, Long houseId, Long userId, Date createTime, Boolean type) {
         this.id = id;
         this.houseId = houseId;
         this.userId = userId;
@@ -21,7 +21,7 @@ public class UserCollect {
         this.type = type;
     }
 
-    public UserCollect() {
+    public HouseCollect() {
         super();
     }
 

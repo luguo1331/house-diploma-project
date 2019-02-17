@@ -87,7 +87,7 @@
     </if>
     'true' as QUERYID,
     <include refid="Base_Column_List" />
-    from house_user
+    from house_info
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -98,21 +98,21 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
-    from house_user
+    from house_info
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from house_user
+    delete from house_info
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="com.sise.house.user.biz.pojo.UserExample" >
-    delete from house_user
+    delete from house_info
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.sise.house.user.biz.pojo.User" >
-    insert into house_user (id, name, phone_number, 
+    insert into house_info (id, name, phone_number, 
       email, aboutme, passwd, 
       avatar, type, create_time, 
       enable, agency_id, last_login_time, 
@@ -124,7 +124,7 @@
       #{lastUpdateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.sise.house.user.biz.pojo.User" >
-    insert into house_user
+    insert into house_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -209,13 +209,13 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.sise.house.user.biz.pojo.UserExample" resultType="java.lang.Integer" >
-    select count(*) from house_user
+    select count(*) from house_info
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update house_user
+    update house_info
     <set >
       <if test="record.id != null" >
         id = #{record.id,jdbcType=BIGINT},
@@ -262,7 +262,7 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update house_user
+    update house_info
     set id = #{record.id,jdbcType=BIGINT},
       name = #{record.name,jdbcType=VARCHAR},
       phone_number = #{record.phoneNumber,jdbcType=CHAR},
@@ -281,7 +281,7 @@
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.sise.house.user.biz.pojo.User" >
-    update house_user
+    update house_info
     <set >
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
@@ -323,7 +323,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.sise.house.user.biz.pojo.User" >
-    update house_user
+    update house_info
     set name = #{name,jdbcType=VARCHAR},
       phone_number = #{phoneNumber,jdbcType=CHAR},
       email = #{email,jdbcType=VARCHAR},
