@@ -1,4 +1,4 @@
-package com.sise.house.user.biz.exception;
+package com.sise.common.exception;
 
 import lombok.Getter;
 
@@ -52,6 +52,18 @@ public enum ResultEnum {
      * 七牛云接口出错
      */
     QINIU_ERROR(2002, "七牛云接口出错"),
+
+    //3 中介相关接口错误
+    /**
+     * 不存在此中介
+     */
+    UN_EXIST_AGENCY(3001, "不存在此中介"),
+    /**
+     * 更新中介失败
+     */
+    MODIFY_AGENCY_ERROR(3002, "更新中介失败"),
+
+
     /**
      * 成功
      */

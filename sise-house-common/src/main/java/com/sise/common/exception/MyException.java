@@ -1,4 +1,4 @@
-package com.sise.house.user.biz.exception;
+package com.sise.common.exception;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
