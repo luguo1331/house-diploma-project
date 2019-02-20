@@ -1,17 +1,26 @@
 package com.sise.house.house.api.dto.response;
 
+import com.sise.house.house.api.constants.PhotoForm;
+import io.swagger.annotations.ApiModel;
+import lombok.Data;
+
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Description:
  * @Auther: 冲之
  * @Date: 2019/2/15 21:39
  */
-public class HouseMsgRespDto {
+@ApiModel(value = "HouseMsgRespDto", description = "房产信息 RespDto")
+@Data
+public class HouseMsgRespDto implements Serializable {
 
+    private static final long serialVersionUID = 8244231544024095252L;
     private Long id;
     /**
      * 房产名称
@@ -23,7 +32,7 @@ public class HouseMsgRespDto {
     /**
      * 1:销售，2:出租
      */
-    private Boolean type;
+    private Byte type;
 
     /**
      * 单位元
@@ -150,4 +159,21 @@ public class HouseMsgRespDto {
      * 街道
      */
     private String street;
+
+
+    private Long subwayLineId;
+
+    private Long subwayStationId;
+
+    private String layoutDesc;
+
+    private String roundService;
+
+    private String traffic;
+
+    private String description;
+
+    private List<String> tags;
+
+    private List<PhotoForm> photos;
 }

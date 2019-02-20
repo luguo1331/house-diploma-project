@@ -43,6 +43,11 @@ public enum ResultEnum {
      */
     MODIFY_USER_ERROR(1007, "更新用户失败"),
 
+    /**
+     * 验证码错误
+     */
+    ERROR_VERIFY_CODE(1008, "验证码错误"),
+
     // 2开头为第三方接口的错误
     /**
      * 发送短信失败
@@ -62,8 +67,37 @@ public enum ResultEnum {
      * 更新中介失败
      */
     MODIFY_AGENCY_ERROR(3002, "更新中介失败"),
+    //4 房产相关接口错误
+    /**
+     * 不存在此房子
+     */
+    UN_EXIST_HOUSE(4001, "不存在此房子"),
+    /**
+     * 此标签已存在
+     */
+    EXIST_TAG(4002, "此标签已存在"),
 
+    /**
+     * 此标签不存在
+     */
+    UN_EXIST_TAG(4003, "此标签不存在"),
+    /**
+     * 此图片不存在
+     */
+    UN_EXIST_PICTURE(4004, "此图片不存在"),
+    /**
+     * 已加入预约
+     */
+    EXIST_SUBSCRIBE(4005, "已加入预约"),
+    /**
+     * 无预约记录
+     */
+    UN_EXIST_SUBSCRIBE(4006, "无预约记录"),
 
+    /**
+     * 无法预约
+     */
+    ERROR_SUBSCRIBE(4007, "无法预约"),
     /**
      * 成功
      */

@@ -10,7 +10,7 @@
       <arg column="aboutme" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="passwd" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="avatar" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="type" jdbcType="BIT" javaType="java.lang.Boolean" />
+      <arg column="type" jdbcType="TINYINT" javaType="java.lang.Byte" />
       <arg column="create_time" jdbcType="DATE" javaType="java.util.Date" />
       <arg column="enable" jdbcType="BIT" javaType="java.lang.Boolean" />
       <arg column="agency_id" jdbcType="BIGINT" javaType="java.lang.Long" />
@@ -119,7 +119,7 @@
       last_update_time)
     values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{phoneNumber,jdbcType=CHAR}, 
       #{email,jdbcType=VARCHAR}, #{aboutme,jdbcType=VARCHAR}, #{passwd,jdbcType=VARCHAR}, 
-      #{avatar,jdbcType=VARCHAR}, #{type,jdbcType=BIT}, #{createTime,jdbcType=DATE}, 
+      #{avatar,jdbcType=VARCHAR}, #{type,jdbcType=TINYINT}, #{createTime,jdbcType=DATE}, 
       #{enable,jdbcType=BIT}, #{agencyId,jdbcType=BIGINT}, #{lastLoginTime,jdbcType=TIMESTAMP}, 
       #{lastUpdateTime,jdbcType=TIMESTAMP})
   </insert>
@@ -189,7 +189,7 @@
         #{avatar,jdbcType=VARCHAR},
       </if>
       <if test="type != null" >
-        #{type,jdbcType=BIT},
+        #{type,jdbcType=TINYINT},
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=DATE},
@@ -239,7 +239,7 @@
         avatar = #{record.avatar,jdbcType=VARCHAR},
       </if>
       <if test="record.type != null" >
-        type = #{record.type,jdbcType=BIT},
+        type = #{record.type,jdbcType=TINYINT},
       </if>
       <if test="record.createTime != null" >
         create_time = #{record.createTime,jdbcType=DATE},
@@ -270,7 +270,7 @@
       aboutme = #{record.aboutme,jdbcType=VARCHAR},
       passwd = #{record.passwd,jdbcType=VARCHAR},
       avatar = #{record.avatar,jdbcType=VARCHAR},
-      type = #{record.type,jdbcType=BIT},
+      type = #{record.type,jdbcType=TINYINT},
       create_time = #{record.createTime,jdbcType=DATE},
       enable = #{record.enable,jdbcType=BIT},
       agency_id = #{record.agencyId,jdbcType=BIGINT},
@@ -302,7 +302,7 @@
         avatar = #{avatar,jdbcType=VARCHAR},
       </if>
       <if test="type != null" >
-        type = #{type,jdbcType=BIT},
+        type = #{type,jdbcType=TINYINT},
       </if>
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=DATE},
@@ -330,7 +330,7 @@
       aboutme = #{aboutme,jdbcType=VARCHAR},
       passwd = #{passwd,jdbcType=VARCHAR},
       avatar = #{avatar,jdbcType=VARCHAR},
-      type = #{type,jdbcType=BIT},
+      type = #{type,jdbcType=TINYINT},
       create_time = #{createTime,jdbcType=DATE},
       enable = #{enable,jdbcType=BIT},
       agency_id = #{agencyId,jdbcType=BIGINT},

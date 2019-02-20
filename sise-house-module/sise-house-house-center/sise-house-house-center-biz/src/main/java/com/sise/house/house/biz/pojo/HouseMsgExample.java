@@ -245,52 +245,52 @@ public class HouseMsgExample {
             return (Criteria) this;
         }
 
-        public Criteria andTypeEqualTo(Boolean value) {
+        public Criteria andTypeEqualTo(Byte value) {
             addCriterion("type =", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotEqualTo(Boolean value) {
+        public Criteria andTypeNotEqualTo(Byte value) {
             addCriterion("type <>", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andTypeGreaterThan(Boolean value) {
+        public Criteria andTypeGreaterThan(Byte value) {
             addCriterion("type >", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andTypeGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andTypeGreaterThanOrEqualTo(Byte value) {
             addCriterion("type >=", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andTypeLessThan(Boolean value) {
+        public Criteria andTypeLessThan(Byte value) {
             addCriterion("type <", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andTypeLessThanOrEqualTo(Boolean value) {
+        public Criteria andTypeLessThanOrEqualTo(Byte value) {
             addCriterion("type <=", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIn(List<Boolean> values) {
+        public Criteria andTypeIn(List<Byte> values) {
             addCriterion("type in", values, "type");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotIn(List<Boolean> values) {
+        public Criteria andTypeNotIn(List<Byte> values) {
             addCriterion("type not in", values, "type");
             return (Criteria) this;
         }
 
-        public Criteria andTypeBetween(Boolean value1, Boolean value2) {
+        public Criteria andTypeBetween(Byte value1, Byte value2) {
             addCriterion("type between", value1, value2, "type");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andTypeNotBetween(Byte value1, Byte value2) {
             addCriterion("type not between", value1, value2, "type");
             return (Criteria) this;
         }
@@ -352,76 +352,6 @@ public class HouseMsgExample {
 
         public Criteria andPriceNotBetween(Integer value1, Integer value2) {
             addCriterion("price not between", value1, value2, "price");
-            return (Criteria) this;
-        }
-
-        public Criteria andImagesIsNull() {
-            addCriterion("images is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andImagesIsNotNull() {
-            addCriterion("images is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andImagesEqualTo(String value) {
-            addCriterion("images =", value, "images");
-            return (Criteria) this;
-        }
-
-        public Criteria andImagesNotEqualTo(String value) {
-            addCriterion("images <>", value, "images");
-            return (Criteria) this;
-        }
-
-        public Criteria andImagesGreaterThan(String value) {
-            addCriterion("images >", value, "images");
-            return (Criteria) this;
-        }
-
-        public Criteria andImagesGreaterThanOrEqualTo(String value) {
-            addCriterion("images >=", value, "images");
-            return (Criteria) this;
-        }
-
-        public Criteria andImagesLessThan(String value) {
-            addCriterion("images <", value, "images");
-            return (Criteria) this;
-        }
-
-        public Criteria andImagesLessThanOrEqualTo(String value) {
-            addCriterion("images <=", value, "images");
-            return (Criteria) this;
-        }
-
-        public Criteria andImagesLike(String value) {
-            addCriterion("images like", value, "images");
-            return (Criteria) this;
-        }
-
-        public Criteria andImagesNotLike(String value) {
-            addCriterion("images not like", value, "images");
-            return (Criteria) this;
-        }
-
-        public Criteria andImagesIn(List<String> values) {
-            addCriterion("images in", values, "images");
-            return (Criteria) this;
-        }
-
-        public Criteria andImagesNotIn(List<String> values) {
-            addCriterion("images not in", values, "images");
-            return (Criteria) this;
-        }
-
-        public Criteria andImagesBetween(String value1, String value2) {
-            addCriterion("images between", value1, value2, "images");
-            return (Criteria) this;
-        }
-
-        public Criteria andImagesNotBetween(String value1, String value2) {
-            addCriterion("images not between", value1, value2, "images");
             return (Criteria) this;
         }
 

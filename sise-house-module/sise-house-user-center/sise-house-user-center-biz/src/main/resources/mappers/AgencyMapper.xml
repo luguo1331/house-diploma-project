@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.sise.house.user.biz.pojo.Agency" >
     <constructor >
       <idArg column="id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="user_id" jdbcType="BIGINT" javaType="java.lang.Long" />
       <arg column="name" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="address" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="phone" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -72,7 +73,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, name, address, phone, email, about_us, mobile, web_site
+    id, user_id, name, address, phone, email, about_us, mobile, web_site
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.sise.house.user.biz.pojo.AgencyExample" >
     select
@@ -106,18 +107,23 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.sise.house.user.biz.pojo.Agency" >
-    insert into house_agency (id, name, address, 
-      phone, email, about_us, 
-      mobile, web_site)
-    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
-      #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{aboutUs,jdbcType=VARCHAR}, 
-      #{mobile,jdbcType=VARCHAR}, #{webSite,jdbcType=VARCHAR})
+    insert into house_agency (id, user_id, name, 
+      address, phone, email, 
+      about_us, mobile, web_site
+      )
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{aboutUs,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{webSite,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.sise.house.user.biz.pojo.Agency" >
     insert into house_agency
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
+      </if>
+      <if test="userId != null" >
+        user_id,
       </if>
       <if test="name != null" >
         name,
@@ -144,6 +150,9 @@
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
       </if>
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
@@ -180,6 +189,9 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=BIGINT},
       </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=BIGINT},
+      </if>
       <if test="record.name != null" >
         name = #{record.name,jdbcType=VARCHAR},
       </if>
@@ -209,6 +221,7 @@
   <update id="updateByExample" parameterType="map" >
     update house_agency
     set id = #{record.id,jdbcType=BIGINT},
+      user_id = #{record.userId,jdbcType=BIGINT},
       name = #{record.name,jdbcType=VARCHAR},
       address = #{record.address,jdbcType=VARCHAR},
       phone = #{record.phone,jdbcType=VARCHAR},
@@ -223,6 +236,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.sise.house.user.biz.pojo.Agency" >
     update house_agency
     <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
@@ -249,7 +265,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.sise.house.user.biz.pojo.Agency" >
     update house_agency
-    set name = #{name,jdbcType=VARCHAR},
+    set user_id = #{userId,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
       address = #{address,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},

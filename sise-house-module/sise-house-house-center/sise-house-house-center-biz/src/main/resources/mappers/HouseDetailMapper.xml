@@ -8,7 +8,6 @@
       <arg column="layout_desc" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="traffic" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="round_service" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="rent_way" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="address" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="subway_line_id" jdbcType="BIGINT" javaType="java.lang.Long" />
       <arg column="subway_line_name" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -76,8 +75,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, description, layout_desc, traffic, round_service, rent_way, address, subway_line_id, 
-    subway_line_name, subway_station_id, subway_station_name, house_id
+    id, description, layout_desc, traffic, round_service, address, subway_line_id, subway_line_name, 
+    subway_station_id, subway_station_name, house_id
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.sise.house.house.biz.pojo.HouseDetailExample" >
     select
@@ -112,15 +111,13 @@
   </delete>
   <insert id="insert" parameterType="com.sise.house.house.biz.pojo.HouseDetail" >
     insert into house_detail (id, description, layout_desc, 
-      traffic, round_service, rent_way, 
-      address, subway_line_id, subway_line_name, 
-      subway_station_id, subway_station_name, house_id
-      )
+      traffic, round_service, address, 
+      subway_line_id, subway_line_name, subway_station_id, 
+      subway_station_name, house_id)
     values (#{id,jdbcType=BIGINT}, #{description,jdbcType=VARCHAR}, #{layoutDesc,jdbcType=VARCHAR}, 
-      #{traffic,jdbcType=VARCHAR}, #{roundService,jdbcType=VARCHAR}, #{rentWay,jdbcType=INTEGER}, 
-      #{address,jdbcType=VARCHAR}, #{subwayLineId,jdbcType=BIGINT}, #{subwayLineName,jdbcType=VARCHAR}, 
-      #{subwayStationId,jdbcType=BIGINT}, #{subwayStationName,jdbcType=VARCHAR}, #{houseId,jdbcType=BIGINT}
-      )
+      #{traffic,jdbcType=VARCHAR}, #{roundService,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{subwayLineId,jdbcType=BIGINT}, #{subwayLineName,jdbcType=VARCHAR}, #{subwayStationId,jdbcType=BIGINT}, 
+      #{subwayStationName,jdbcType=VARCHAR}, #{houseId,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="com.sise.house.house.biz.pojo.HouseDetail" >
     insert into house_detail
@@ -139,9 +136,6 @@
       </if>
       <if test="roundService != null" >
         round_service,
-      </if>
-      <if test="rentWay != null" >
-        rent_way,
       </if>
       <if test="address != null" >
         address,
@@ -177,9 +171,6 @@
       </if>
       <if test="roundService != null" >
         #{roundService,jdbcType=VARCHAR},
-      </if>
-      <if test="rentWay != null" >
-        #{rentWay,jdbcType=INTEGER},
       </if>
       <if test="address != null" >
         #{address,jdbcType=VARCHAR},
@@ -225,9 +216,6 @@
       <if test="record.roundService != null" >
         round_service = #{record.roundService,jdbcType=VARCHAR},
       </if>
-      <if test="record.rentWay != null" >
-        rent_way = #{record.rentWay,jdbcType=INTEGER},
-      </if>
       <if test="record.address != null" >
         address = #{record.address,jdbcType=VARCHAR},
       </if>
@@ -258,7 +246,6 @@
       layout_desc = #{record.layoutDesc,jdbcType=VARCHAR},
       traffic = #{record.traffic,jdbcType=VARCHAR},
       round_service = #{record.roundService,jdbcType=VARCHAR},
-      rent_way = #{record.rentWay,jdbcType=INTEGER},
       address = #{record.address,jdbcType=VARCHAR},
       subway_line_id = #{record.subwayLineId,jdbcType=BIGINT},
       subway_line_name = #{record.subwayLineName,jdbcType=VARCHAR},
@@ -283,9 +270,6 @@
       </if>
       <if test="roundService != null" >
         round_service = #{roundService,jdbcType=VARCHAR},
-      </if>
-      <if test="rentWay != null" >
-        rent_way = #{rentWay,jdbcType=INTEGER},
       </if>
       <if test="address != null" >
         address = #{address,jdbcType=VARCHAR},
@@ -314,7 +298,6 @@
       layout_desc = #{layoutDesc,jdbcType=VARCHAR},
       traffic = #{traffic,jdbcType=VARCHAR},
       round_service = #{roundService,jdbcType=VARCHAR},
-      rent_way = #{rentWay,jdbcType=INTEGER},
       address = #{address,jdbcType=VARCHAR},
       subway_line_id = #{subwayLineId,jdbcType=BIGINT},
       subway_line_name = #{subwayLineName,jdbcType=VARCHAR},

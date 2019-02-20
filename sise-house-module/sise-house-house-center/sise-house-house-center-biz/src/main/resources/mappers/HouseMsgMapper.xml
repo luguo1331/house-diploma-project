@@ -5,9 +5,8 @@
     <constructor >
       <idArg column="id" jdbcType="BIGINT" javaType="java.lang.Long" />
       <arg column="name" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="type" jdbcType="BIT" javaType="java.lang.Boolean" />
+      <arg column="type" jdbcType="TINYINT" javaType="java.lang.Byte" />
       <arg column="price" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="images" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="area" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="beds" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="baths" jdbcType="INTEGER" javaType="java.lang.Integer" />
@@ -94,7 +93,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, name, type, price, images, area, beds, baths, parlour, floor, total_floor, watch_times, 
+    id, name, type, price, area, beds, baths, parlour, floor, total_floor, watch_times, 
     build_year, rating, remarks, properties, floor_plan, city_en_name, region_en_name, 
     community_id, district, address, cover, direction, create_time, last_update_time, 
     status, distance_to_subway, user_id, street
@@ -131,8 +130,8 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.sise.house.house.biz.pojo.HouseMsg" >
-    insert into house_msg (id, name, type, price, 
-      images, area, beds, 
+    insert into house_msg (id, name, type, 
+      price, area, beds, 
       baths, parlour, floor, 
       total_floor, watch_times, build_year, 
       rating, remarks, properties, 
@@ -141,8 +140,8 @@
       cover, direction, create_time, 
       last_update_time, status, distance_to_subway, 
       user_id, street)
-    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=BIT}, #{price,jdbcType=INTEGER}, 
-      #{images,jdbcType=VARCHAR}, #{area,jdbcType=INTEGER}, #{beds,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=TINYINT}, 
+      #{price,jdbcType=INTEGER}, #{area,jdbcType=INTEGER}, #{beds,jdbcType=INTEGER}, 
       #{baths,jdbcType=INTEGER}, #{parlour,jdbcType=INTEGER}, #{floor,jdbcType=INTEGER}, 
       #{totalFloor,jdbcType=INTEGER}, #{watchTimes,jdbcType=INTEGER}, #{buildYear,jdbcType=INTEGER}, 
       #{rating,jdbcType=DOUBLE}, #{remarks,jdbcType=VARCHAR}, #{properties,jdbcType=VARCHAR}, 
@@ -166,9 +165,6 @@
       </if>
       <if test="price != null" >
         price,
-      </if>
-      <if test="images != null" >
-        images,
       </if>
       <if test="area != null" >
         area,
@@ -254,13 +250,10 @@
         #{name,jdbcType=VARCHAR},
       </if>
       <if test="type != null" >
-        #{type,jdbcType=BIT},
+        #{type,jdbcType=TINYINT},
       </if>
       <if test="price != null" >
         #{price,jdbcType=INTEGER},
-      </if>
-      <if test="images != null" >
-        #{images,jdbcType=VARCHAR},
       </if>
       <if test="area != null" >
         #{area,jdbcType=INTEGER},
@@ -355,13 +348,10 @@
         name = #{record.name,jdbcType=VARCHAR},
       </if>
       <if test="record.type != null" >
-        type = #{record.type,jdbcType=BIT},
+        type = #{record.type,jdbcType=TINYINT},
       </if>
       <if test="record.price != null" >
         price = #{record.price,jdbcType=INTEGER},
-      </if>
-      <if test="record.images != null" >
-        images = #{record.images,jdbcType=VARCHAR},
       </if>
       <if test="record.area != null" >
         area = #{record.area,jdbcType=INTEGER},
@@ -447,9 +437,8 @@
     update house_msg
     set id = #{record.id,jdbcType=BIGINT},
       name = #{record.name,jdbcType=VARCHAR},
-      type = #{record.type,jdbcType=BIT},
+      type = #{record.type,jdbcType=TINYINT},
       price = #{record.price,jdbcType=INTEGER},
-      images = #{record.images,jdbcType=VARCHAR},
       area = #{record.area,jdbcType=INTEGER},
       beds = #{record.beds,jdbcType=INTEGER},
       baths = #{record.baths,jdbcType=INTEGER},
@@ -486,13 +475,10 @@
         name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="type != null" >
-        type = #{type,jdbcType=BIT},
+        type = #{type,jdbcType=TINYINT},
       </if>
       <if test="price != null" >
         price = #{price,jdbcType=INTEGER},
-      </if>
-      <if test="images != null" >
-        images = #{images,jdbcType=VARCHAR},
       </if>
       <if test="area != null" >
         area = #{area,jdbcType=INTEGER},
@@ -575,9 +561,8 @@
   <update id="updateByPrimaryKey" parameterType="com.sise.house.house.biz.pojo.HouseMsg" >
     update house_msg
     set name = #{name,jdbcType=VARCHAR},
-      type = #{type,jdbcType=BIT},
+      type = #{type,jdbcType=TINYINT},
       price = #{price,jdbcType=INTEGER},
-      images = #{images,jdbcType=VARCHAR},
       area = #{area,jdbcType=INTEGER},
       beds = #{beds,jdbcType=INTEGER},
       baths = #{baths,jdbcType=INTEGER},

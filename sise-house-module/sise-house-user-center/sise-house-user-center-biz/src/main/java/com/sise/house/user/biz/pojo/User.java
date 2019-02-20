@@ -17,7 +17,7 @@ public class User {
 
     private String avatar;
 
-    private Boolean type;
+    private Byte type;
 
     private Date createTime;
 
@@ -29,7 +29,7 @@ public class User {
 
     private Date lastUpdateTime;
 
-    public User(Long id, String name, String phoneNumber, String email, String aboutme, String passwd, String avatar, Boolean type, Date createTime, Boolean enable, Long agencyId, Date lastLoginTime, Date lastUpdateTime) {
+    public User(Long id, String name, String phoneNumber, String email, String aboutme, String passwd, String avatar, Byte type, Date createTime, Boolean enable, Long agencyId, Date lastLoginTime, Date lastUpdateTime) {
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
@@ -105,11 +105,11 @@ public class User {
         this.avatar = avatar == null ? null : avatar.trim();
     }
 
-    public Boolean getType() {
+    public Byte getType() {
         return type;
     }
 
-    public void setType(Boolean type) {
+    public void setType(Byte type) {
         this.type = type;
     }
 

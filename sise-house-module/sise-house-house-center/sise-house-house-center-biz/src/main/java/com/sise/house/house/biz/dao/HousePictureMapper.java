@@ -10,7 +10,7 @@ public interface HousePictureMapper {
 
     int deleteByExample(HousePictureExample example);
 
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Long id);
 
     int insert(HousePicture record);
 
@@ -18,7 +18,7 @@ public interface HousePictureMapper {
 
     List<HousePicture> selectByExample(HousePictureExample example);
 
-    HousePicture selectByPrimaryKey(Integer id);
+    HousePicture selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") HousePicture record, @Param("example") HousePictureExample example);
 

@@ -1,5 +1,6 @@
 package com.sise.house.house.api.dto.request;
 
+import com.sise.house.house.api.constants.PhotoForm;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
@@ -9,6 +10,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Description: 房屋基本信息查询 DTO
@@ -34,7 +36,7 @@ public class HouseMsgReqDto implements Serializable {
     @NotNull(message = "必须选中一个租赁方式")
     @Min(value = 1)
     @Max(value = 2)
-    private Boolean type;
+    private Byte type;
 
     /**
      * 单位元
@@ -42,11 +44,6 @@ public class HouseMsgReqDto implements Serializable {
     @NotNull(message = "必须填写租赁价格")
     @Min(value = 1)
     private Integer price;
-
-    /**
-     * 图片地址
-     */
-    private String images;
 
     /**
      * 面积
@@ -172,5 +169,23 @@ public class HouseMsgReqDto implements Serializable {
     @NotNull(message = "必须填写街道")
     @Size(min = 1, message = "非法的街道")
     private String street;
+
+
+    private Long subwayLineId;
+
+    private Long subwayStationId;
+
+    private String layoutDesc;
+
+    private String roundService;
+
+    private String traffic;
+
+    @Size(max = 255)
+    private String description;
+
+    private List<String> tags;
+
+    private List<PhotoForm> photos;
 
 }

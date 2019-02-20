@@ -3,6 +3,8 @@ package com.sise.house.user.biz.pojo;
 public class Agency {
     private Long id;
 
+    private Long userId;
+
     private String name;
 
     private String address;
@@ -17,8 +19,9 @@ public class Agency {
 
     private String webSite;
 
-    public Agency(Long id, String name, String address, String phone, String email, String aboutUs, String mobile, String webSite) {
+    public Agency(Long id, Long userId, String name, String address, String phone, String email, String aboutUs, String mobile, String webSite) {
         this.id = id;
+        this.userId = userId;
         this.name = name;
         this.address = address;
         this.phone = phone;
@@ -38,6 +41,14 @@ public class Agency {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getName() {

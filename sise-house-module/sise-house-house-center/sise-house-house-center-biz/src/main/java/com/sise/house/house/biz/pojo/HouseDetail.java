@@ -11,8 +11,6 @@ public class HouseDetail {
 
     private String roundService;
 
-    private Integer rentWay;
-
     private String address;
 
     private Long subwayLineId;
@@ -25,13 +23,12 @@ public class HouseDetail {
 
     private Long houseId;
 
-    public HouseDetail(Long id, String description, String layoutDesc, String traffic, String roundService, Integer rentWay, String address, Long subwayLineId, String subwayLineName, Long subwayStationId, String subwayStationName, Long houseId) {
+    public HouseDetail(Long id, String description, String layoutDesc, String traffic, String roundService, String address, Long subwayLineId, String subwayLineName, Long subwayStationId, String subwayStationName, Long houseId) {
         this.id = id;
         this.description = description;
         this.layoutDesc = layoutDesc;
         this.traffic = traffic;
         this.roundService = roundService;
-        this.rentWay = rentWay;
         this.address = address;
         this.subwayLineId = subwayLineId;
         this.subwayLineName = subwayLineName;
@@ -82,14 +79,6 @@ public class HouseDetail {
 
     public void setRoundService(String roundService) {
         this.roundService = roundService == null ? null : roundService.trim();
-    }
-
-    public Integer getRentWay() {
-        return rentWay;
-    }
-
-    public void setRentWay(Integer rentWay) {
-        this.rentWay = rentWay;
     }
 
     public String getAddress() {

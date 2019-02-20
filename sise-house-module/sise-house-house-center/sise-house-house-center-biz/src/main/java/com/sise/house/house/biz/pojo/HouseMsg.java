@@ -7,11 +7,9 @@ public class HouseMsg {
 
     private String name;
 
-    private Boolean type;
+    private Byte type;
 
     private Integer price;
-
-    private String images;
 
     private Integer area;
 
@@ -63,12 +61,11 @@ public class HouseMsg {
 
     private String street;
 
-    public HouseMsg(Long id, String name, Boolean type, Integer price, String images, Integer area, Integer beds, Integer baths, Integer parlour, Integer floor, Integer totalFloor, Integer watchTimes, Integer buildYear, Double rating, String remarks, String properties, String floorPlan, String cityEnName, String regionEnName, Long communityId, String district, String address, String cover, Integer direction, Date createTime, Date lastUpdateTime, Integer status, Integer distanceToSubway, Long userId, String street) {
+    public HouseMsg(Long id, String name, Byte type, Integer price, Integer area, Integer beds, Integer baths, Integer parlour, Integer floor, Integer totalFloor, Integer watchTimes, Integer buildYear, Double rating, String remarks, String properties, String floorPlan, String cityEnName, String regionEnName, Long communityId, String district, String address, String cover, Integer direction, Date createTime, Date lastUpdateTime, Integer status, Integer distanceToSubway, Long userId, String street) {
         this.id = id;
         this.name = name;
         this.type = type;
         this.price = price;
-        this.images = images;
         this.area = area;
         this.beds = beds;
         this.baths = baths;
@@ -116,11 +113,11 @@ public class HouseMsg {
         this.name = name == null ? null : name.trim();
     }
 
-    public Boolean getType() {
+    public Byte getType() {
         return type;
     }
 
-    public void setType(Boolean type) {
+    public void setType(Byte type) {
         this.type = type;
     }
 
@@ -130,14 +127,6 @@ public class HouseMsg {
 
     public void setPrice(Integer price) {
         this.price = price;
-    }
-
-    public String getImages() {
-        return images;
-    }
-
-    public void setImages(String images) {
-        this.images = images == null ? null : images.trim();
     }
 
     public Integer getArea() {

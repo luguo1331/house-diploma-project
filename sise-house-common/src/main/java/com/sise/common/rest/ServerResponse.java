@@ -19,22 +19,26 @@ public class ServerResponse<T> implements Serializable {
 
     private ServerResponse(int status, boolean flag) {
         this.status = status;
+        this.flag = flag;
     }
 
     private ServerResponse(int status, T data, boolean flag) {
         this.status = status;
         this.data = data;
+        this.flag = flag;
     }
 
     private ServerResponse(int status, String msg, T data, boolean flag) {
         this.status = status;
         this.msg = msg;
         this.data = data;
+        this.flag = flag;
     }
 
     private ServerResponse(int status, String msg, boolean flag) {
         this.status = status;
         this.msg = msg;
+        this.flag = flag;
     }
 
     private ServerResponse() {
@@ -57,6 +61,13 @@ public class ServerResponse<T> implements Serializable {
         return msg;
     }
 
+    public boolean isFlag() {
+        return flag;
+    }
+
+    public void setFlag(boolean flag) {
+        this.flag = flag;
+    }
 
     public static <T> ServerResponse<T> createBySuccess() {
         return new ServerResponse<T>(ResponseCode.SUCCESS.getCode(), true);

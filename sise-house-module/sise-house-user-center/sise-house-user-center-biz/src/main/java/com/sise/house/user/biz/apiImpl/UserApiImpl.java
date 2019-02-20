@@ -8,6 +8,7 @@ import com.sise.house.user.biz.pojo.User;
 import com.sise.house.user.biz.service.UserService;
 import io.swagger.annotations.ApiOperation;
 import org.modelmapper.ModelMapper;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,7 +35,7 @@ public class UserApiImpl implements IUserApi {
      * @return
      */
     @ApiOperation(value = "注册", notes = "注册")
-    public ServerResponse register(UserReqDto userReqDto) {
+    public ServerResponse register(@RequestBody UserReqDto userReqDto) {
         User map = modelMapper.map(userReqDto, User.class);
         Long userId = userService.addUser(map);
         return ServerResponse.createBySuccess(userId);
@@ -49,7 +50,7 @@ public class UserApiImpl implements IUserApi {
      * @return
      */
     @ApiOperation(value = "更新用户信息", notes = "更新用户信息")
-    public ServerResponse modifyUser(UserReqDto userReqDto) {
+    public ServerResponse modifyUser(@RequestBody UserReqDto userReqDto) {
         User map = modelMapper.map(userReqDto, User.class);
         userService.modifyUser(map);
         return ServerResponse.createBySuccess();

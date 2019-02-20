@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -40,6 +41,7 @@ public class UserReqDto implements Serializable {
      * 电子邮件
      */
     @ApiModelProperty(name = "email", value = "电子邮件")
+    @NotBlank(message = "邮件不能为空")
     private String email;
 
     /**
@@ -52,6 +54,7 @@ public class UserReqDto implements Serializable {
      * 经过MD5加密的密码
      */
     @ApiModelProperty(name = "passwd", value = "经过MD5加密的密码")
+    @NotBlank(message = "密码不能为空")
     private String passwd;
 
     /**

@@ -1,6 +1,8 @@
 package com.sise.house.house.biz;
 
 import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServlet;
+import com.sise.common.util.IdWorker;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -19,15 +21,18 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages = "com.sise.house.user.api")
 @ComponentScan(basePackages = {"com.sise.house.*"})
 @EnableHystrixDashboard
 @EnableCircuitBreaker
 @EnableHystrix
+@MapperScan("com.sise.house.house.biz.dao")
 public class HouseCenterApplication {
     public static void main(String[] args) {
         SpringApplication.run(HouseCenterApplication.class, args);
     }
 
-
+    @Bean
+    public IdWorker IdWorker() {
+        return new IdWorker();
+    }
 }

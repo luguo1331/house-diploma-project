@@ -1,5 +1,6 @@
 package com.sise.house.user.biz.exception;
 
+import com.sise.common.exception.MyException;
 import com.sise.common.rest.ServerResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

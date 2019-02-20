@@ -1,7 +1,7 @@
 package com.sise.house.house.biz.pojo;
 
 public class HousePicture {
-    private Integer id;
+    private Long id;
 
     private Long houseId;
 
@@ -15,7 +15,7 @@ public class HousePicture {
 
     private String path;
 
-    public HousePicture(Integer id, Long houseId, String cdnPrefix, Integer width, Integer height, String location, String path) {
+    public HousePicture(Long id, Long houseId, String cdnPrefix, Integer width, Integer height, String location, String path) {
         this.id = id;
         this.houseId = houseId;
         this.cdnPrefix = cdnPrefix;
@@ -29,11 +29,11 @@ public class HousePicture {
         super();
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

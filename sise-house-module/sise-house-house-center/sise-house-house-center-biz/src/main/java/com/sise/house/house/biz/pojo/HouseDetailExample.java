@@ -444,66 +444,6 @@ public class HouseDetailExample {
             return (Criteria) this;
         }
 
-        public Criteria andRentWayIsNull() {
-            addCriterion("rent_way is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRentWayIsNotNull() {
-            addCriterion("rent_way is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRentWayEqualTo(Integer value) {
-            addCriterion("rent_way =", value, "rentWay");
-            return (Criteria) this;
-        }
-
-        public Criteria andRentWayNotEqualTo(Integer value) {
-            addCriterion("rent_way <>", value, "rentWay");
-            return (Criteria) this;
-        }
-
-        public Criteria andRentWayGreaterThan(Integer value) {
-            addCriterion("rent_way >", value, "rentWay");
-            return (Criteria) this;
-        }
-
-        public Criteria andRentWayGreaterThanOrEqualTo(Integer value) {
-            addCriterion("rent_way >=", value, "rentWay");
-            return (Criteria) this;
-        }
-
-        public Criteria andRentWayLessThan(Integer value) {
-            addCriterion("rent_way <", value, "rentWay");
-            return (Criteria) this;
-        }
-
-        public Criteria andRentWayLessThanOrEqualTo(Integer value) {
-            addCriterion("rent_way <=", value, "rentWay");
-            return (Criteria) this;
-        }
-
-        public Criteria andRentWayIn(List<Integer> values) {
-            addCriterion("rent_way in", values, "rentWay");
-            return (Criteria) this;
-        }
-
-        public Criteria andRentWayNotIn(List<Integer> values) {
-            addCriterion("rent_way not in", values, "rentWay");
-            return (Criteria) this;
-        }
-
-        public Criteria andRentWayBetween(Integer value1, Integer value2) {
-            addCriterion("rent_way between", value1, value2, "rentWay");
-            return (Criteria) this;
-        }
-
-        public Criteria andRentWayNotBetween(Integer value1, Integer value2) {
-            addCriterion("rent_way not between", value1, value2, "rentWay");
-            return (Criteria) this;
-        }
-
         public Criteria andAddressIsNull() {
             addCriterion("address is null");
             return (Criteria) this;

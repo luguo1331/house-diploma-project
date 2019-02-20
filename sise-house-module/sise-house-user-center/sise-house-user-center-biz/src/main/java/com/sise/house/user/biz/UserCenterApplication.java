@@ -1,9 +1,11 @@
 package com.sise.house.user.biz;
 
+import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServlet;
 import com.sise.common.util.IdWorker;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 
@@ -25,4 +27,5 @@ public class UserCenterApplication {
     public IdWorker IdWorker() {
         return new IdWorker();
     }
+
 }

@@ -4,11 +4,12 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.sise.common.util.IdWorker;
 import com.sise.common.util.MD5Util;
+import com.sise.house.user.api.dto.request.LoginReqDto;
 import com.sise.house.user.api.dto.request.UserReqDto;
 import com.sise.house.user.api.dto.response.UserRespDto;
 import com.sise.house.user.biz.dao.UserMapper;
-import com.sise.house.user.biz.exception.MyException;
-import com.sise.house.user.biz.exception.ResultEnum;
+import com.sise.common.exception.MyException;
+import com.sise.common.exception.ResultEnum;
 import com.sise.house.user.biz.pojo.User;
 import com.sise.house.user.biz.pojo.UserExample;
 import org.modelmapper.ModelMapper;
@@ -51,6 +52,8 @@ public class UserService {
         }
         user.setId(idWorker.nextId());
         user.setCreateTime(new Date());
+        user.setLastLoginTime(new Date());
+        user.setLastUpdateTime(new Date());
         user.setPasswd(MD5Util.MD5String(user.getPasswd(), salt));
         userMapper.insert(user);
         return user.getId();
@@ -60,14 +63,14 @@ public class UserService {
     /**
      * 验证密码、邮箱
      *
-     * @param userReqDto
+     * @param loginReqDto
      * @return
      */
-    public User auth(UserReqDto userReqDto) {
+    public User auth(LoginReqDto loginReqDto) {
         UserExample userExample = new UserExample();
         userExample.createCriteria()
-                .andPasswdEqualTo(MD5Util.MD5String(userReqDto.getPasswd(), salt))
-                .andEmailEqualTo(userReqDto.getEmail())
+                .andPasswdEqualTo(MD5Util.MD5String(loginReqDto.getPasswd(), salt))
+                .andEmailEqualTo(loginReqDto.getEmail())
                 .andEnableEqualTo(true);
         List<User> users = userMapper.selectByExample(userExample);
         if (users.isEmpty()) {
@@ -110,7 +113,7 @@ public class UserService {
      * @param type
      * @return
      */
-    public User queryUserById(Long id, Boolean type) {
+    public User queryUserById(Long id, Byte type) {
         UserExample userExample = new UserExample();
         userExample.createCriteria()
                 .andIdEqualTo(id)
@@ -130,11 +133,12 @@ public class UserService {
      * @param type
      * @return
      */
-    public PageInfo<UserRespDto> queryUserByList(Integer pageSize, Integer pageNum, Boolean type) {
+    public PageInfo<UserRespDto> queryUserByList(Integer pageSize, Integer pageNum, Byte type, Long agencyId) {
         UserExample userExample = new UserExample();
         PageHelper.startPage(pageNum, pageSize);
         userExample.createCriteria()
-                .andTypeEqualTo(type);
+                .andTypeEqualTo(type)
+                .andAgencyIdEqualTo(agencyId);
         List<User> users = userMapper.selectByExample(userExample);
         PageInfo result = new PageInfo(users);
         List<UserRespDto> map = modelMapper.map(users, new TypeToken<List<UserRespDto>>() {
@@ -153,7 +157,7 @@ public class UserService {
         UserExample userExample = new UserExample();
         userExample.createCriteria().andEmailEqualTo(user.getEmail());
         List<User> users = userMapper.selectByExample(userExample);
-        return users.isEmpty() ? false : true;
+        return users.isEmpty() ? true : false;
     }
 
     /**
@@ -166,6 +170,6 @@ public class UserService {
         UserExample userExample = new UserExample();
         userExample.createCriteria().andNameEqualTo(user.getName());
         List<User> users = userMapper.selectByExample(userExample);
-        return users.isEmpty() ? false : true;
+        return users.isEmpty() ? true : false;
     }
 }

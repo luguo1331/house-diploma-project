@@ -6,6 +6,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -16,11 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Api(tags = {"用户中心：中介机构接口"})
 @FeignClient(value = "sise-user", path = "/agency")
-@Validated
 public interface IAgencyApi {
 
-    @RequestMapping("/add")
-    @ApiOperation(value = "新增中介", notes = "新增中介")
-    ServerResponse addAgency(@RequestBody AgencyReqDto agencyReqDto);
+    @PostMapping("/add")
+    @ApiOperation(value = "新增中介机构", notes = "新增中介机构")
+    ServerResponse addAgency(@RequestBody @Validated AgencyReqDto agencyReqDto);
 
+    @PostMapping("/modify")
+    @ApiOperation(value = "修改中介机构", notes = "修改中介机构")
+    ServerResponse modifyAgency(@RequestBody AgencyReqDto agencyReqDto);
 }
