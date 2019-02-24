@@ -67,7 +67,7 @@ public class HouseSubscribeService {
     }
 
     /***
-     * 查看用户的预约清单
+     * 查看用户的预约清单列表
      * @param pageSize
      * @param pageNum
      * @param status
@@ -94,6 +94,34 @@ public class HouseSubscribeService {
     }
 
     /**
+     * 查询用户被预约列表
+     *
+     * @param pageSize
+     * @param pageNum
+     * @param status
+     * @param adminId
+     * @return
+     */
+    public PageInfo<HouseSubscribeRespDto> queryBeSubscribe(Integer pageSize, Integer pageNum, Integer status, Long adminId) {
+        PageHelper.startPage(pageNum, pageSize);
+        HouseSubscribeExample houseSubscribeExample = new HouseSubscribeExample();
+        HouseSubscribeExample.Criteria criteria = houseSubscribeExample.createCriteria();
+        if (adminId != null) {
+            criteria.andAdminIdEqualTo(adminId);
+        }
+        if (status != null) {
+            criteria.andStatusEqualTo(status);
+        }
+        List<HouseSubscribe> houseSubscribes = subscribeMapper.selectByExample(houseSubscribeExample);
+        PageInfo pageInfo = new PageInfo(houseSubscribes);
+        List<HouseSubscribeRespDto> list = new ArrayList<>();
+        List<HouseSubscribeRespDto> map = modelMapper.map(houseSubscribes, new TypeToken<List<HouseSubscribeRespDto>>() {
+        }.getType());
+        pageInfo.setList(map);
+        return pageInfo;
+    }
+
+    /**
      * 确定预约时间
      *
      * @param sureSubscribeReqDto
@@ -103,7 +131,7 @@ public class HouseSubscribeService {
         if (bySubscribe == null) {
             throw new MyException(ResultEnum.UN_EXIST_SUBSCRIBE);
         }
-        if (bySubscribe.getStatus() != HouseSubscribeStatus.IN_ORDER_LIST.getValue()) {
+        if (bySubscribe.getStatus() != HouseSubscribeStatus.IN_ORDER_TIME.getValue()) {
             throw new MyException(ResultEnum.ERROR_SUBSCRIBE);
         }
         bySubscribe.setStatus(HouseSubscribeStatus.IN_ORDER_TIME.getValue());
@@ -125,9 +153,9 @@ public class HouseSubscribeService {
         if (bySubscribe == null) {
             throw new MyException(ResultEnum.UN_EXIST_SUBSCRIBE);
         }
-        if (bySubscribe.getStatus() != HouseSubscribeStatus.IN_ORDER_LIST.getValue()) {
-            throw new MyException(ResultEnum.ERROR_SUBSCRIBE);
-        }
+//        if (bySubscribe.getStatus() != HouseSubscribeStatus.IN_ORDER_LIST.getValue()) {
+//            throw new MyException(ResultEnum.ERROR_SUBSCRIBE);
+//        }
         bySubscribe.setStatus(status);
         subscribeMapper.updateByPrimaryKeySelective(bySubscribe);
     }

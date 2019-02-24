@@ -22,8 +22,8 @@ public interface IAgencyQueryApi {
     @GetMapping("/list")
     @ApiOperation(value = "分页查询中介列表", notes = "分页查询中介列表")
     ServerResponse queryAgencyList(@RequestParam(name = "pageSize", required = false, defaultValue = "10") Integer pageSize,
-                              @RequestParam(name = "pageNum", required = false, defaultValue = "1") Integer pageNum,
-                              @RequestParam(name = "keyword", required = false) String keyword);
+                                   @RequestParam(name = "pageNum", required = false, defaultValue = "1") Integer pageNum,
+                                   @RequestParam(name = "keyword", required = false) String keyword);
 
     @GetMapping("agencyDetail/{id}")
     @ApiOperation(value = "查询中介机构信息", notes = "查询中介机构信息")

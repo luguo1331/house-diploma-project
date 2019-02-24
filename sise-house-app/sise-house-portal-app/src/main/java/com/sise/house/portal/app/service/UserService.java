@@ -5,6 +5,7 @@ import com.sise.common.exception.ResultEnum;
 import com.sise.common.rest.ServerResponse;
 import com.sise.house.comment.api.IEmailApi;
 import com.sise.house.comment.api.query.IEmailQueryApi;
+import com.sise.house.portal.app.Dto.PasswordDto;
 import com.sise.house.portal.app.Dto.RegisterDto;
 import com.sise.house.portal.app.support.TokenManager;
 import com.sise.house.user.api.IUserApi;
@@ -15,6 +16,7 @@ import com.sise.house.user.api.query.IUserQueryApi;
 import io.swagger.annotations.ApiOperation;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -87,6 +89,42 @@ public class UserService {
     public ServerResponse logout(String token) {
         TokenManager.logout(token);
         return ServerResponse.createBySuccess();
+    }
+
+    /**
+     * 修改用户信息
+     *
+     * @param userReqDto
+     * @return
+     */
+    public ServerResponse modifyUserInfo(UserReqDto userReqDto) {
+        return userApi.modifyUser(userReqDto);
+    }
+
+    /**
+     * 忘记密码
+     *
+     * @param passwordDto
+     * @return
+     */
+    public ServerResponse forgetPassword(PasswordDto passwordDto) {
+        ServerResponse serverResponse = emailQueryApi.queryEmailByCode(passwordDto.getVerifyCode());
+        if (serverResponse.getData() == null || !serverResponse.getData().equals(passwordDto.getEmail())) {
+            throw new MyException(ResultEnum.ERROR_VERIFY_CODE);
+        }
+        UserReqDto map = modelMapper.map(passwordDto, UserReqDto.class);
+        return userApi.modifyPasswordByEmail(map);
+    }
+
+    /**
+     * 分页查询中介列表
+     *
+     * @param pageSize
+     * @param pageNum
+     * @return
+     */
+    public ServerResponse queryUserByList(Integer pageSize, Integer pageNum) {
+        return userQueryApi.queryUserByList(pageSize, pageNum, (long) 0, (byte) 2);
     }
 
 }

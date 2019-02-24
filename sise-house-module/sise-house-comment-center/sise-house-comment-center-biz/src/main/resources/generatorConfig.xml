@@ -72,7 +72,7 @@
 
         <table tableName="house_comment" domainObjectName="Comment" enableCountByExample="true" enableUpdateByExample="true"
                enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
-        <table tableName="house_email_msg" domainObjectName="Message" enableCountByExample="true" enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
+        <!--<table tableName="house_email_msg" domainObjectName="Message" enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>-->
     </context>
 </generatorConfiguration>

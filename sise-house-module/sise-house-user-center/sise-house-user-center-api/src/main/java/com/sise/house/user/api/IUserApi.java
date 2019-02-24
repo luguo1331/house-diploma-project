@@ -29,4 +29,8 @@ public interface IUserApi {
     @ApiOperation(value = "更新用户信息", notes = "更新用户信息")
     ServerResponse modifyUser(@RequestBody UserReqDto userReqDto);
 
+    @PostMapping("modifyPasswd/ByEmail")
+    @ApiOperation(value = "根据邮箱修改密码", notes = "根据邮箱修改密码")
+    ServerResponse modifyPasswordByEmail(@RequestBody UserReqDto userReqDto);
+
 }

@@ -42,7 +42,6 @@ public class UserApiImpl implements IUserApi {
     }
 
 
-
     /**
      * 更新用户信息
      *
@@ -54,5 +53,19 @@ public class UserApiImpl implements IUserApi {
         User map = modelMapper.map(userReqDto, User.class);
         userService.modifyUser(map);
         return ServerResponse.createBySuccess();
+    }
+
+    /**
+     * 根据邮箱修改密码
+     *
+     * @param userReqDto
+     * @return
+     */
+    @ApiOperation(value = "根据邮箱修改密码", notes = "根据邮箱修改密码")
+    public ServerResponse modifyPasswordByEmail(@RequestBody UserReqDto userReqDto) {
+        User map = modelMapper.map(userReqDto, User.class);
+        userService.modifyPasswordByEmail(map);
+        return ServerResponse.createBySuccess();
+
     }
 }

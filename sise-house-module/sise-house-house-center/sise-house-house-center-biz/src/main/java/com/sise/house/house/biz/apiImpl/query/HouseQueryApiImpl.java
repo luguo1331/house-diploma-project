@@ -2,17 +2,15 @@ package com.sise.house.house.biz.apiImpl.query;
 
 import com.github.pagehelper.PageInfo;
 import com.sise.common.rest.ServerResponse;
-import com.sise.common.rest.ServiceMultiResult;
 import com.sise.house.house.api.constants.RentSearch;
+import com.sise.house.house.api.dto.response.HouseBaseInfoRespDto;
 import com.sise.house.house.api.dto.response.HouseMsgRespDto;
 import com.sise.house.house.api.query.IHouseQueryApi;
 import com.sise.house.house.biz.service.HouseService;
-import com.sise.house.house.biz.service.SearchService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * @Description:
@@ -38,6 +36,16 @@ public class HouseQueryApiImpl implements IHouseQueryApi {
     public ServerResponse queryHouseInfoByPage(@RequestBody RentSearch rentSearch) {
         PageInfo<HouseMsgRespDto> houseMsgRespDtoPageInfo = houseService.queryHouseInfoByPage(rentSearch);
         return ServerResponse.createBySuccess(houseMsgRespDtoPageInfo);
+    }
+
+    @Override
+    @ApiOperation(value = "查询我的房屋列表", notes = "查询我的房屋列表")
+    public ServerResponse queryHouseById(@RequestParam(name = "pageSize", required = false, defaultValue = "5") Integer pageSize,
+                                         @RequestParam(name = "pageNum", required = false, defaultValue = "1") Integer pageNum,
+                                         @RequestParam(name = "userId") Long userId) {
+        PageInfo<HouseBaseInfoRespDto> myHouseList = houseService.findMyHouseList(pageSize, pageNum, userId);
+        return ServerResponse.createBySuccess(myHouseList);
+
     }
 
 

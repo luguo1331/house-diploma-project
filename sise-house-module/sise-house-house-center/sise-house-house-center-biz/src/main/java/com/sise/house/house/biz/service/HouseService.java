@@ -12,13 +12,11 @@ import com.sise.house.house.api.constants.PhotoForm;
 import com.sise.house.house.api.constants.RentSearch;
 import com.sise.house.house.api.dto.request.HouseMsgReqDto;
 import com.sise.house.house.api.dto.request.MapSearchRepDto;
-import com.sise.house.house.api.dto.response.HouseMsgRespDto;
-import com.sise.house.house.api.dto.response.HousePictureRespDto;
-import com.sise.house.house.api.dto.response.SubwayRespDto;
-import com.sise.house.house.api.dto.response.SubwayStationRespDto;
+import com.sise.house.house.api.dto.response.*;
 import com.sise.house.house.biz.dao.*;
 import com.sise.house.house.biz.pojo.*;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -198,6 +196,31 @@ public class HouseService {
     }
 
     /**
+     * 分页查询我的房产
+     *
+     * @param pageSize
+     * @param pageNum
+     * @param userId
+     * @return
+     */
+    public PageInfo<HouseBaseInfoRespDto> findMyHouseList(Integer pageSize, Integer pageNum, Long userId) {
+        PageHelper.startPage(pageNum, pageSize);
+        HouseMsgExample houseMsgExample = new HouseMsgExample();
+        houseMsgExample.createCriteria()
+                .andUserIdEqualTo(userId);
+        List<HouseMsg> houseMsgs = msgMapper.selectByExample(houseMsgExample);
+        if (houseMsgs.isEmpty()) {
+            return null;
+        }
+        PageInfo pageInfo = new PageInfo(houseMsgs);
+        List<HouseBaseInfoRespDto> result = modelMapper.map(houseMsgs, new TypeToken<List<HouseBaseInfoRespDto>>() {
+        }.getType());
+        pageInfo.setList(result);
+        return pageInfo;
+    }
+
+
+    /**
      * 分页条件查询房屋信息列表
      *
      * @param rentSearch
@@ -282,7 +305,6 @@ public class HouseService {
             houseMsgExample.setOrderByClause("`distance_to_subway` asc");
         } else {
             houseMsgExample.setOrderByClause("`create_time` desc");
-
         }
         List<HouseMsg> houseMsgs = msgMapper.selectByExample(houseMsgExample);
         if (houseMsgs.isEmpty()) {

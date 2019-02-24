@@ -13,11 +13,11 @@ public class Comment {
 
     private Long blogId;
 
-    private Boolean type;
+    private Byte type;
 
     private Long userId;
 
-    public Comment(Long id, String content, Long houseId, Date createTime, Long blogId, Boolean type, Long userId) {
+    public Comment(Long id, String content, Long houseId, Date createTime, Long blogId, Byte type, Long userId) {
         this.id = id;
         this.content = content;
         this.houseId = houseId;
@@ -71,11 +71,11 @@ public class Comment {
         this.blogId = blogId;
     }
 
-    public Boolean getType() {
+    public Byte getType() {
         return type;
     }
 
-    public void setType(Boolean type) {
+    public void setType(Byte type) {
         this.type = type;
     }
 

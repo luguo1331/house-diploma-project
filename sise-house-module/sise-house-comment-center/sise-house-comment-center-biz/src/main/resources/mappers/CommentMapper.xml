@@ -8,7 +8,7 @@
       <arg column="house_id" jdbcType="BIGINT" javaType="java.lang.Long" />
       <arg column="create_time" jdbcType="DATE" javaType="java.util.Date" />
       <arg column="blog_id" jdbcType="BIGINT" javaType="java.lang.Long" />
-      <arg column="type" jdbcType="BIT" javaType="java.lang.Boolean" />
+      <arg column="type" jdbcType="TINYINT" javaType="java.lang.Byte" />
       <arg column="user_id" jdbcType="BIGINT" javaType="java.lang.Long" />
     </constructor>
   </resultMap>
@@ -106,11 +106,11 @@
   </delete>
   <insert id="insert" parameterType="com.sise.house.comment.biz.pojo.Comment" >
     insert into house_comment (id, content, house_id, 
-      create_time, blog_id, type, user_id
-      )
+      create_time, blog_id, type, 
+      user_id)
     values (#{id,jdbcType=BIGINT}, #{content,jdbcType=VARCHAR}, #{houseId,jdbcType=BIGINT}, 
-      #{createTime,jdbcType=DATE}, #{blogId,jdbcType=BIGINT}, #{type,jdbcType=BIT}, #{userId,jdbcType=BIGINT}
-      )
+      #{createTime,jdbcType=DATE}, #{blogId,jdbcType=BIGINT}, #{type,jdbcType=TINYINT}, 
+      #{userId,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="com.sise.house.comment.biz.pojo.Comment" >
     insert into house_comment
@@ -154,7 +154,7 @@
         #{blogId,jdbcType=BIGINT},
       </if>
       <if test="type != null" >
-        #{type,jdbcType=BIT},
+        #{type,jdbcType=TINYINT},
       </if>
       <if test="userId != null" >
         #{userId,jdbcType=BIGINT},
@@ -186,7 +186,7 @@
         blog_id = #{record.blogId,jdbcType=BIGINT},
       </if>
       <if test="record.type != null" >
-        type = #{record.type,jdbcType=BIT},
+        type = #{record.type,jdbcType=TINYINT},
       </if>
       <if test="record.userId != null" >
         user_id = #{record.userId,jdbcType=BIGINT},
@@ -203,7 +203,7 @@
       house_id = #{record.houseId,jdbcType=BIGINT},
       create_time = #{record.createTime,jdbcType=DATE},
       blog_id = #{record.blogId,jdbcType=BIGINT},
-      type = #{record.type,jdbcType=BIT},
+      type = #{record.type,jdbcType=TINYINT},
       user_id = #{record.userId,jdbcType=BIGINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -225,7 +225,7 @@
         blog_id = #{blogId,jdbcType=BIGINT},
       </if>
       <if test="type != null" >
-        type = #{type,jdbcType=BIT},
+        type = #{type,jdbcType=TINYINT},
       </if>
       <if test="userId != null" >
         user_id = #{userId,jdbcType=BIGINT},
@@ -239,7 +239,7 @@
       house_id = #{houseId,jdbcType=BIGINT},
       create_time = #{createTime,jdbcType=DATE},
       blog_id = #{blogId,jdbcType=BIGINT},
-      type = #{type,jdbcType=BIT},
+      type = #{type,jdbcType=TINYINT},
       user_id = #{userId,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>

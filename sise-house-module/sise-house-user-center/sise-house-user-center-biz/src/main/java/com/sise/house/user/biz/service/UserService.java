@@ -107,6 +107,19 @@ public class UserService {
     }
 
     /**
+     * 根据邮箱修改密码
+     *
+     * @param user
+     */
+    public void modifyPasswordByEmail(User user) {
+        UserExample userExample = new UserExample();
+        userExample.createCriteria()
+                .andEmailEqualTo(user.getEmail());
+        user.setPasswd(MD5Util.MD5String(user.getPasswd(), salt));
+        userMapper.updateByExampleSelective(user, userExample);
+    }
+
+    /**
      * 根据id查询用户信息
      *
      * @param id
