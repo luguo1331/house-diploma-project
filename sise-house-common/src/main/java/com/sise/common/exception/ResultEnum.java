@@ -99,6 +99,12 @@ public enum ResultEnum {
      */
     ERROR_SUBSCRIBE(4007, "无法预约"),
     /**
+     * 必须上传图片
+     */
+    PHOTO_MUST_UPLOAD(4008, "必须上传图片"),
+
+
+    /**
      * 成功
      */
     SUCCESS(0, "成功");

@@ -36,19 +36,19 @@ public class SourceApiImpl implements ISourceApi {
     @ApiOperation(value = "上传图片", notes = "上传图片")
     @Override
     public ServerResponse uploadPhoto(@RequestParam(name = "file", required = true) MultipartFile file) {
-        String fileName = file.getOriginalFilename();
-        try {
-            InputStream inputStream = file.getInputStream();
-            Response response = qiNiuService.uploadFile(inputStream);
-            if (response.isOK()) {
-                return ServerResponse.createBySuccess(JSON.parseObject(response.bodyString(), QiNiuPutRet.class));
-            } else {
-                return ServerResponse.createByErrorDate(JSON.parseObject(response.bodyString(), QiNiuPutRet.class));
-            }
-        } catch (IOException e) {
-            log.error("上传图片失败" + e.getMessage());
-            e.printStackTrace();
-        }
+//        String fileName = file.getOriginalFilename();
+//        try {
+//            InputStream inputStream = file.getInputStream();
+//            Response response = qiNiuService.uploadFile(inputStream);
+//            if (response.isOK()) {
+//                return ServerResponse.createBySuccess(JSON.parseObject(response.bodyString(), QiNiuPutRet.class));
+//            } else {
+//                return ServerResponse.createByErrorDate(JSON.parseObject(response.bodyString(), QiNiuPutRet.class));
+//            }
+//        } catch (IOException e) {
+//            log.error("上传图片失败" + e.getMessage());
+//            e.printStackTrace();
+//        }
         return ServerResponse.createByError();
     }
 }

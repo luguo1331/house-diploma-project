@@ -28,4 +28,8 @@ public class UserApiFallback implements IUserApi {
     public ServerResponse modifyUser(UserReqDto userReqDto) {
         return null;
     }
+
+    public ServerResponse modifyPasswordByEmail(UserReqDto userReqDto) {
+        return null;
+    }
 }

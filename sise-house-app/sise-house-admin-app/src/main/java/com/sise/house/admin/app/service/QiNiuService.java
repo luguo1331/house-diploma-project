@@ -1,4 +1,4 @@
-package com.sise.house.house.biz.service;
+package com.sise.house.admin.app.service;
 
 import com.qiniu.common.QiniuException;
 import com.qiniu.http.Response;
@@ -7,10 +7,10 @@ import com.qiniu.storage.UploadManager;
 import com.qiniu.util.Auth;
 import com.qiniu.util.StringMap;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.io.InputStream;
 
 /**
@@ -20,13 +20,13 @@ import java.io.InputStream;
  */
 @Service
 public class QiNiuService implements InitializingBean {
-    @Autowired
+    @Resource
     private UploadManager uploadManager;
 
-    @Autowired
+    @Resource
     private BucketManager bucketManager;
 
-    @Autowired
+    @Resource
     private Auth auth;
 
     @Value("${qiniu.Bucket}")
